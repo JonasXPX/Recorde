@@ -3,6 +3,7 @@ package me.jonasxpx.recorde;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.logging.Level;
 
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -40,7 +41,8 @@ public class Recorde extends JavaPlugin implements Listener{
 	public void join(PlayerJoinEvent e){
 		if(Bukkit.getOnlinePlayers().length > total){
 			this.total = Bukkit.getOnlinePlayers().length;
-			System.out.println("NOVO RECORD DE JOGADORES ONLINE: "+total);
+			getLogger().log(Level.INFO, "NOVO RECORD DE JOGADORES ONLINE: "+total);
+			
 		}
 		e.getPlayer().sendMessage("§7Recode de jogadores online é de "+total);
 	}
